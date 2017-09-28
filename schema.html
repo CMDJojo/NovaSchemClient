@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<head>
+  <title id="title">NA17D Schema/Länkar</title>
+  <!--<link rel="stylesheet" type="text/css" href="stylesheet.css">!-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!--    "Hulebäcksgymnasiet":"http://hule.harryda.se",
+    "HuleDu":"http://huledu.harryda.se",
+    "HuleLogin":"http://utbildning.harryda.se",
+    "Skolmaten.se":"http://skolmaten.se/hulebacksgymnasiet/",
+    "MS Office Online":"https://office.com"
+	!-->
+	<style>
+	/*http://ianlunn.github.io/Hover/ - Coola effecter*/
+
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    html, body {
+      margin: 0;
+    	width: auto;
+    	height: 500px;
+    	font-family: roboto;
+      overflow: hidden;
+    }
+
+    #topbar {
+    	padding-bottom: 20px;
+    	padding-top: 20px;
+    	position: relative;
+    	width: auto;
+    	list-style-type: none;
+      margin: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    #topbar li {
+    	margin: 0;
+    	display: inline;
+    	color: white;
+    	padding-right: 15px;
+    	padding-left: 15px;
+    	padding-top: 20px;
+    	padding-bottom: 20px;
+    }
+    #topbar li a {
+    	margin: 0;
+    	display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+    	display: inline;
+    }
+    #topbar li p {
+    		margin: 0;
+    		display: inline;
+    }
+
+
+    #linksdiv {
+    	padding: 0px;
+    	position: relative;
+    	min-height: 100%;
+    	/*min-width: 200px;*/
+    	margin: 0;
+    	float: right;
+    	height: 100%;
+    	width: 300px;
+    	overflow: hidden;
+    	background-color: #4c4c4c;
+    }
+
+    #linksdiv ul {
+    	padding: 0px;
+    	margin: 0px;
+    }
+
+    #linksdiv li:hover:not(#nobutton) {
+    	background-color: #666666;
+    }
+
+    #linksdiv li {
+    	color: white;
+    	list-style-type: none;
+    	padding-top: 15px;
+    	padding-bottom: 15px;
+    	padding-left: 30px;
+    	display: block;
+    }
+
+    #linksdiv a {
+    	color: white;
+    	text-decoration: none;
+    	font-family: roboto;
+    	display: block;
+
+    }
+
+    #linksdiv #nobutton {
+      color: gray;
+    }
+
+    #linksdiv #bottom {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 90px;
+    }
+
+    .sb {
+    	background-color: #606060;
+    	border: none;
+      color: white;
+      padding: 10px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 0;
+      cursor: pointer;
+    	transition-duration: 0.4s;
+    }
+    .sb:hover {
+    	background-color: #808080;
+    }
+    .ca {
+    	border-radius: 3px;
+    }
+    .cl {
+    	border-radius: 3px 0px 0px 3px;
+    }
+    .cr {
+    	border-radius: 0px 3px 3px 0px;
+    }
+    .inputbox {
+    	background-color: #dddddd;
+    	border: none;
+      color: black;
+      padding: 10px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    	margin: 0;
+      margin-left: 0px;
+    	margin-right: 0px;
+    	transition-duration: 0.4s;
+    }
+    .inputbox:hover {
+      background-color: #ffffff;
+    }
+
+
+    #myCanvas {
+    	margin: auto;
+    }
+	</style>
+</head>
+
+<body>
+  <ul id=topbar>
+      <li>
+        <p id="time">JAVASCRIPT LOADING ERROR</p>
+	    </li><li>
+        <button onclick="weekIncrease(-1)" class="sb cl">←</button><input size="1" id="weekbox" class="inputbox" value="ERR"></input><button onclick="weekIncrease(1)" class="sb cr">→</button>
+		</li><li>
+        <button class="sb ca" id="smartButton" onclick="init()">JAVASCRIPT ERROR - CHECK SIDEBAR</button>
+		</li><li>
+        <button class="sb ca"><a href="" id="dllink" download="download.png">Ladda ned</a></button>
+		</li>
+  </ul>
+  </div>
+
+  <div id="linksdiv">
+  <ul id="links">
+  	<li>Det uppstod ett fel</li>
+    <li>när denna sidan laddades.</li>
+  	<li>Kontrollera att Javascript</li>
+    <li>är aktiverat.</li>
+    <li>Annars kan du</li>
+    <li>kolla i konsolen, eller</li>
+  	<a href="https://github.com/cmdjojo" target="_blank"><li>kontakta mig här!</li></a>
+  </ul>
+  </div>
+
+
+  <canvas id="myCanvas"></canvas>
+  <script>
+    var links = {
+      "Hulebäcksgymnasiet":"http://hule.harryda.se/",
+      "HuleDu":"http://huledu.harryda.se/",
+      "Skolmaten":"http://skolmaten.se/hulebacksgymnasiet/",
+      "Office Online":"https://office.com/",
+      "Google Drive":"https://drive.google.com/drive/my-drive",
+      "Nationalencyklopedin":"http://www.ne.se/"
+    }
+
+    var SchoolId, GroupId, Width, Height, week, currentURL
+
+    function getSize(cut){
+      if(cut===true){
+        return {width:window.innerWidth-widthSpacing+canvasWidthDiff,height:window.innerHeight-heightSpacing+canvasHeightDiff}
+      }else{
+        return {width:window.innerWidth-widthSpacing,height:window.innerHeight-heightSpacing}
+      }
+    }
+
+    function init(){
+      widthSpacing = 293
+      heightSpacing = 20
+      canvasWidthDiff = -7
+      canvasHeightDiff = -50
+      drawOffsetX = -1
+      drawOffsetY = -1
+
+      SchoolId = "82710Y"
+      GroupId = "NA17D"
+      Width = getSize(false).width
+      Height = getSize(false).height
+      dlWidth = 2480
+      dlHeight = Math.floor(dlWidth*1.41)
+
+      week = currentWeek()
+      setWeek(week)
+      updateTime()
+      setInterval(updateTime,1000)
+      smartBtnUpdate()
+      setInterval(smartBtnUpdate,500)
+
+      var innerHTMLList = ""
+      Object.keys(links).forEach(function(value){
+        innerHTMLList += '<a href='+links[value]+' target="_blank"><li>'+value+'</li></a>'
+      })
+      innerHTMLList += '<ul id="bottom"><li id="nobutton">©Jonathan Widén och<br>Kalle Hernqvist Larsson</li></ul>'
+      document.getElementById("links").innerHTML = innerHTMLList
+    }
+
+    function updateTime(){
+      var newDate = new Date()
+      var newDateArray = [newDate.getFullYear(),("0" + (newDate.getMonth()+1)).slice(-2),("0" + (newDate.getDate())).slice(-2),("0" + (newDate.getHours())).slice(-2),("0" + (newDate.getMinutes())).slice(-2)]
+      document.getElementById("time").innerHTML = newDateArray[0]+"-"+newDateArray[1]+"-"+newDateArray[2]+" "+newDateArray[3]+":"+newDateArray[4]
+    }
+
+    function smartBtnUpdate(){
+      document.body.style.height = window.innerHeight+"px"
+      var boxWeek = document.getElementById("weekbox").value
+      if(week==boxWeek){
+        if(Width != getSize(false).width || Height != getSize(false).height){
+          updateSize()
+        }else if(currentWeek()==week){
+          document.getElementById("smartButton").setAttribute("onclick","")
+          document.getElementById("smartButton").innerHTML = "Detta är den nuvarande veckan"
+        }else{
+          document.getElementById("smartButton").setAttribute("onclick","setWeek(currentWeek())")
+          document.getElementById("smartButton").innerHTML = "Gå till nuvarande veckan ("+currentWeek()+")"
+        }
+      }else{
+        var regex = /(^0?\d$)|(^[1-4][0-9]$)|(^5[0-3]$)/g
+        if(boxWeek.match(regex).length != 1){
+          document.getElementById("smartButton").setAttribute("onclick","")
+          document.getElementById("smartButton").innerHTML = boxWeek+" är inte en vecka"
+        }else{
+          document.getElementById("smartButton").setAttribute("onclick","setWeek(document.getElementById('weekbox').value)")
+          document.getElementById("smartButton").innerHTML = "Gå till vecka "+boxWeek
+        }
+      }
+    }
+
+    function setWeek(value){
+      if(isNaN(value)) value = week+1
+      week = parseInt(value)
+      printImage(makeUrl(week))
+    }
+
+    function updateSize(){
+      Width = getSize(false).width
+      Height = getSize(false).height
+      printImage(makeUrl(week))
+    }
+
+    function currentWeek(){
+      var d = new Date();
+      var dayNum = d.getUTCDay() || 7;
+      d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+      var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+      return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+    }
+
+    function makeUrl(week,bigSize){
+      if(bigSize===true){
+        return "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid="+SchoolId+"/sv-se&type=-1&id="+GroupId+"&period=&week="+week+"&mode=0&printer=1&colors=32&head=0&clock=0&foot=0&day=0&width="+dlWidth+"&height="+dlHeight+"&maxwidth="+dlWidth+"&maxheight="+dlHeight
+      }else{
+        return "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid="+SchoolId+"/sv-se&type=-1&id="+GroupId+"&period=&week="+week+"&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=0&width="+Width+"&height="+Height+"&maxwidth="+Width+"&maxheight="+Height
+      }
+    }
+
+    function weekIncrease(no){
+      week += no
+      printImage(makeUrl(week))
+    }
+
+    function printImage(url){
+      var c = document.getElementById("myCanvas");
+      c.width = getSize(true).width
+      c.height = getSize(true).height
+      var ctx = c.getContext("2d");
+      var img = new Image();
+      currentURL = url
+      img.onload = function() {
+        if(img.src == currentURL) ctx.drawImage(img, drawOffsetX, drawOffsetY);
+      };
+      img.src = url
+      document.getElementById("weekbox").value = week
+      document.getElementById("dllink").href = makeUrl(week,true)
+      var newDate = new Date()
+      smartBtnUpdate()
+      document.getElementById("title").innerHTML = GroupId+" v."+week
+    }
+
+
+    init()
+
+
+
+  </script>
+</body>
