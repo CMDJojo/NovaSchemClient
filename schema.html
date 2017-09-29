@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <head>
-  <title id="title">NA17D Schema/Länkar</title>
-  <!--<link rel="stylesheet" type="text/css" href="stylesheet.css">!-->
+  <title id="title">Schema/Länkar</title>
+
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <!--    "Hulebäcksgymnasiet":"http://hule.harryda.se",
-    "HuleDu":"http://huledu.harryda.se",
-    "HuleLogin":"http://utbildning.harryda.se",
-    "Skolmaten.se":"http://skolmaten.se/hulebacksgymnasiet/",
-    "MS Office Online":"https://office.com"
-	!-->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACUUlEQVR42u2aXU7DMAzHizRxDG7BU48Dx+BiFUdA4pG3HoUWtcKT49mx0yZNP2zJohvZKv/ifxJ7bRo3Nzc3Nzc3t7iNB/V8AIZhOJQ7gFIA4JqDwqWhNBaPj/0Pf4d2z+oA6BjpNX0vBkEbqwDMC0D6WxtAJDOuAeCQGaCtAVzgGsiiAC5/Dui6Lupt2+5qjAOoAaDv+9k/xjfWTw9ACvwUAGB2pRUbA5jGc9eHBqCdvQEAtxqfBkDsQGKVAGTS8+c367sHwBU7nATwzGMAUuCpAABk8/Iz+9frGPhuJTAFOb23FgAEXh0AzIRVAgAA+2IA0+cRgOl1MQBrtkEMySKB+45zu7EeAPiHgIIuAyDXIcciASnwBwBbSgDv6dIClwIAIFAZAIBZdgsyoDiAtXu8NPNYJgAAIOBrLQPuu0MJAJq+c+3xJglsXQ4Tsg+OZxenNE1vKwA841QOAEBryGZviMRuKG1xawAEBy4EokoGaG7VtyWTdikByVODs2SSFDh3r6ffd9bLlcPKrGjBWUBaZAJB4oCLAliTlqnBWTIJBRl4UQDaymxpmpjO+YZMklK/2DmAW5np4cRSMdIylnquTKoiAelHTQxAChwDSJGJtPMUzwAJgJYBtIzlAFikRIPdBAD1JRIIihhUzGAAlu/R+gpFM0AqUCxNE4sELFLS+gpV1oAlrSwJQGoGcDXI6QHsIgNSDzlS4EE/QHkCxdJYOfSPo/R5AK4FrxVehwegSeDUP49bdhN/PsABOAAH4AC2BHD1x+Tc3Nzc3Nzczmd/FHAQVyvRMmgAAAAASUVORK5CYII=
+  ">
 	<style>
-	/*http://ianlunn.github.io/Hover/ - Coola effecter*/
 
     @import url('https://fonts.googleapis.com/css?family=Roboto');
     html, body {
@@ -59,7 +54,6 @@
     	padding: 0px;
     	position: relative;
     	min-height: 100%;
-    	/*min-width: 200px;*/
     	margin: 0;
     	float: right;
     	height: 100%;
@@ -183,6 +177,10 @@
 
   <canvas id="myCanvas"></canvas>
   <script>
+    var setup = {
+      "SchoolId":"82710Y",    //NOVASOFTWARE SCHOOLID
+      "GroupId":"NA17D"       //NOVASOFTWARE GROUPID
+    }
     var links = {
       "Hulebäcksgymnasiet":"http://hule.harryda.se/",
       "HuleDu":"http://huledu.harryda.se/",
@@ -210,8 +208,9 @@
       drawOffsetX = -1
       drawOffsetY = -1
 
-      SchoolId = "82710Y"
-      GroupId = "NA17D"
+      SchoolId = setup.SchoolId
+      GroupId = setup.GroupId
+
       Width = getSize(false).width
       Height = getSize(false).height
       dlWidth = 2480
