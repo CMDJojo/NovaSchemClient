@@ -1,150 +1,10 @@
 <!DOCTYPE html>
 <head>
   <title id="title">Schema/Länkar</title>
-
+  <link href="pstylesheet.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAC8klEQVR42u2a7XGDMAyGyVD9lW3af52hi2WGzpARuIxAj/Tck4Uk68M2NJg7XQOBKn6iV5YVT9M0LSe3aTnrMQBQAErn6OHMqPcKzsX7WvsIAdAAsjxjud/yJZkiIL3m/g4A/xCAQmIjApo4GQDODKDWNFjDxyiENABOvxa43W5qu16vpvuP/MwAcHQA9/v9aZfHu8peDoB24N0BpG/ma/lQ2eEBpAFpjtWJduA1AKyfD/5NlrJ4FQCWYw8A2PD13QGs/0M6zxParLKuEsBlowQlAdAUGRCAduAeAAluGIDUgopKwAMgNHV+PjL7fls21jUHrIP61et2sOk6fB8O5nG5qOzpBw28GgAYZlDnONxLAPLkRV9LALQDDwOwhhmXA/D1qAS8AJ4gWwOonQOwPBKA9TocJD7nAPxFFACQru0GgJ7T5034YwDJ8DmG4ZaApbS1AIB54ygSICOgT1VXDnuNBLQAMARRAjibS5VdBEBJAtQsQIU8Ff4hCUhZnQLgK2v7SkCKgBQFJglE9ay9F/rpVgckp5r6XqrqOE3DqNE2KzkJcOFvAYA+i62LSukZAqAgrM94/HgiwAp6sv4+7w1niw8rAOzH3Ba3fjOecO7pxwLaBeCVnlEDiIbz0fxkACzr7mg4W9pbrSJgMwtYM61v5rD392KgZ9UKtCmAvHjKW9u4pR0B4C3SMgAQRGnNbfkdIbXRuBY3B6LmoksNQFN1rU6sh1cCPtDbilTqRbok0BIADGefn1mItIoALFtmpHY1ZxEAYQloAcAyWvo9QVqklABYNlRhAFLDpb8EiFYV1bqiAEiwtRKgFmtqAPAeLQD44bhuLdW93V0C0mtOAqVd3BEJaLe8cRKQZLC7BLj2VQsJmGcBqeuiPbIKDYV8SQaHkADXeXVVaEEJNAdgkUAEAPymudeUBDR5QAsgvBr0AiB1yeQBLgdIecC9QaJnBLSWQDMA3m0oVgDRtcBLbZQcABzT7dgsPQAMAAOAGcCZ7QcX9TmTBXbVYgAAAABJRU5ErkJggg==">
-	<style>
-
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
-    html, body {
-      margin: 0;
-    	width: auto;
-    	height: 500px;
-    	font-family: roboto;
-      overflow: hidden;
-    }
-
-    #topbar {
-    	padding-bottom: 20px;
-    	padding-top: 20px;
-    	position: relative;
-    	width: auto;
-    	list-style-type: none;
-      margin: 0;
-      overflow: hidden;
-      background-color: #333;
-    }
-
-    #topbar li {
-    	margin: 0;
-    	display: inline;
-    	color: white;
-    	padding-right: 15px;
-    	padding-left: 15px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    }
-    #topbar li a {
-    	margin: 0;
-    	display: block;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-    	display: inline;
-    }
-    #topbar li p {
-    		margin: 0;
-    		display: inline;
-    }
-
-
-    #linksdiv {
-    	padding: 0px;
-    	position: relative;
-    	min-height: 100%;
-    	margin: 0;
-    	float: right;
-    	height: 100%;
-    	width: 300px;
-    	overflow: hidden;
-    	background-color: #4c4c4c;
-    }
-
-    #linksdiv ul {
-    	padding: 0px;
-    	margin: 0px;
-    }
-
-    #linksdiv li:hover:not(#nobutton) {
-    	background-color: #666666;
-    }
-
-    #linksdiv li {
-    	color: white;
-    	list-style-type: none;
-    	padding-top: 15px;
-    	padding-bottom: 15px;
-    	padding-left: 30px;
-    	display: block;
-    }
-
-    #linksdiv a {
-    	color: white;
-    	text-decoration: none;
-    	font-family: roboto;
-    	display: block;
-
-    }
-
-    #linksdiv #nobutton {
-      color: gray;
-    }
-
-    #linksdiv #bottom {
-      position: absolute;
-      bottom: 0;
-      margin-bottom: 90px;
-    }
-
-    .sb {
-    	background-color: #606060;
-    	border: none;
-      color: white;
-      padding: 10px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 0;
-      cursor: pointer;
-    	transition-duration: 0.4s;
-    }
-    .sb:hover {
-    	background-color: #808080;
-    }
-    .ca {
-    	border-radius: 3px;
-    }
-    .cl {
-    	border-radius: 3px 0px 0px 3px;
-    }
-    .cr {
-    	border-radius: 0px 3px 3px 0px;
-    }
-    .inputbox {
-    	background-color: #dddddd;
-    	border: none;
-      color: black;
-      padding: 10px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-    	margin: 0;
-      margin-left: 0px;
-    	margin-right: 0px;
-    	transition-duration: 0.4s;
-    }
-    .inputbox:hover {
-      background-color: #ffffff;
-    }
-
-
-    #myCanvas {
-    	margin: auto;
-    }
-	</style>
 </head>
 
 <body>
@@ -188,9 +48,7 @@
       "Google Drive":"https://drive.google.com/drive/my-drive",
       "Nationalencyklopedin":"http://www.ne.se/"
     }
-
     var SchoolId, GroupId, Width, Height, week, currentURL
-
     function getSize(cut){
       if(cut===true){
         return {width:window.innerWidth-widthSpacing+canvasWidthDiff,height:window.innerHeight-heightSpacing+canvasHeightDiff}
@@ -198,7 +56,6 @@
         return {width:window.innerWidth-widthSpacing,height:window.innerHeight-heightSpacing}
       }
     }
-
     function init(){
       widthSpacing = 293
       heightSpacing = 20
@@ -206,22 +63,18 @@
       canvasHeightDiff = -50
       drawOffsetX = -1
       drawOffsetY = -1
-
       SchoolId = setup.SchoolId
       GroupId = setup.GroupId
-
       Width = getSize(false).width
       Height = getSize(false).height
       dlWidth = 2480
       dlHeight = Math.floor(dlWidth*1.41)
-
       week = currentWeek()
       setWeek(week)
       updateTime()
       setInterval(updateTime,1000)
       smartBtnUpdate()
       setInterval(smartBtnUpdate,500)
-
       var innerHTMLList = ""
       Object.keys(links).forEach(function(value){
         innerHTMLList += '<a href='+links[value]+' target="_blank"><li>'+value+'</li></a>'
@@ -229,13 +82,11 @@
       innerHTMLList += '<ul id="bottom"><li id="nobutton">Klient av Jonathan Widén och<br>Kalle Hernqvist Larsson</li></ul>'
       document.getElementById("links").innerHTML = innerHTMLList
     }
-
     function updateTime(){
       var newDate = new Date()
       var newDateArray = [newDate.getFullYear(),("0" + (newDate.getMonth()+1)).slice(-2),("0" + (newDate.getDate())).slice(-2),("0" + (newDate.getHours())).slice(-2),("0" + (newDate.getMinutes())).slice(-2)]
       document.getElementById("time").innerHTML = newDateArray[0]+"-"+newDateArray[1]+"-"+newDateArray[2]+" "+newDateArray[3]+":"+newDateArray[4]
     }
-
     function smartBtnUpdate(){
       document.body.style.height = window.innerHeight+"px"
       var boxWeek = document.getElementById("weekbox").value
@@ -260,19 +111,16 @@
         }
       }
     }
-
     function setWeek(value){
       if(isNaN(value)) value = week+1
       week = parseInt(value)
       printImage(makeUrl(week))
     }
-
     function updateSize(){
       Width = getSize(false).width
       Height = getSize(false).height
       printImage(makeUrl(week))
     }
-
     function currentWeek(){
       var d = new Date();
       var dayNum = d.getUTCDay() || 7;
@@ -280,7 +128,6 @@
       var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
       return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
     }
-
     function makeUrl(week,bigSize){
       if(bigSize===true){
         return "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid="+SchoolId+"/sv-se&type=-1&id="+GroupId+"&period=&week="+week+"&mode=0&printer=1&colors=32&head=0&clock=0&foot=0&day=0&width="+dlWidth+"&height="+dlHeight+"&maxwidth="+dlWidth+"&maxheight="+dlHeight
@@ -288,12 +135,10 @@
         return "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid="+SchoolId+"/sv-se&type=-1&id="+GroupId+"&period=&week="+week+"&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=0&width="+Width+"&height="+Height+"&maxwidth="+Width+"&maxheight="+Height
       }
     }
-
     function weekIncrease(no){
       week += no
       printImage(makeUrl(week))
     }
-
     function printImage(url){
       var c = document.getElementById("myCanvas");
       c.width = getSize(true).width
@@ -311,11 +156,6 @@
       smartBtnUpdate()
       document.getElementById("title").innerHTML = GroupId+" v."+week
     }
-
-
     init()
-
-
-
   </script>
 </body>
